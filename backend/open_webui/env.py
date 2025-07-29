@@ -209,6 +209,14 @@ ENABLE_FORWARD_USER_INFO_HEADERS = (
 )
 
 ####################################
+# ENABLE_FORWARD_JWT_TOKEN
+####################################
+
+ENABLE_FORWARD_JWT_TOKEN = (
+    os.environ.get("ENABLE_FORWARD_JWT_TOKEN", "False").lower() == "true"
+)
+
+####################################
 # WEBUI_BUILD_HASH
 ####################################
 

@@ -26,6 +26,7 @@ from open_webui.env import (
     AIOHTTP_CLIENT_TIMEOUT,
     AIOHTTP_CLIENT_TIMEOUT_MODEL_LIST,
     ENABLE_FORWARD_USER_INFO_HEADERS,
+    ENABLE_FORWARD_JWT_TOKEN,
     BYPASS_MODEL_ACCESS_CONTROL,
 )
 from open_webui.models.users import UserModel
@@ -114,6 +115,28 @@ def openai_o_series_handler(payload):
             payload["messages"][0]["role"] = "developer"
 
     return payload
+
+
+def extract_jwt_token_from_request(request: Request) -> Optional[str]:
+    """
+    Extract JWT token from request headers or cookies
+    """
+    # First try to get from Authorization header
+    auth_header = request.headers.get("Authorization")
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header[7:]  # Remove "Bearer " prefix
+        # Skip if it's an API key (starts with 'sk-')
+        if not token.startswith("sk-"):
+            return token
+    
+    # If not in header, try to get from cookies
+    if "token" in request.cookies:
+        token = request.cookies.get("token")
+        # Skip if it's an API key (starts with 'sk-')
+        if token and not token.startswith("sk-"):
+            return token
+    
+    return None
 
 
 ##########################################
@@ -495,7 +518,19 @@ async def get_models(
                         "object": "list",
                     }
                 else:
-                    headers["Authorization"] = f"Bearer {key}"
+                    # Check if we should forward JWT token instead of using API key
+                    auth_token = key  # Default to API key
+                    if ENABLE_FORWARD_JWT_TOKEN and (not key or key.strip() == ""):
+                        # No API key provided, try to extract and forward JWT token
+                        jwt_token = extract_jwt_token_from_request(request)
+                        if jwt_token:
+                            auth_token = jwt_token
+                            log.debug(f"Forwarding JWT token for models request: {url}")
+                        else:
+                            log.warning(f"JWT forwarding enabled but no valid JWT token found for models request to {url}")
+
+                    if auth_token:  # Only set Authorization header if we have a token
+                        headers["Authorization"] = f"Bearer {auth_token}"
 
                     async with session.get(
                         f"{url}/models",
@@ -558,7 +593,9 @@ class ConnectionVerificationForm(BaseModel):
 
 @router.post("/verify")
 async def verify_connection(
-    form_data: ConnectionVerificationForm, user=Depends(get_admin_user)
+    request: Request,
+    form_data: ConnectionVerificationForm, 
+    user=Depends(get_admin_user)
 ):
     url = form_data.url
     key = form_data.key
@@ -604,7 +641,19 @@ async def verify_connection(
                     response_data = await r.json()
                     return response_data
             else:
-                headers["Authorization"] = f"Bearer {key}"
+                # Check if we should forward JWT token instead of using API key
+                auth_token = key  # Default to API key
+                if ENABLE_FORWARD_JWT_TOKEN and (not key or key.strip() == ""):
+                    # No API key provided, try to extract and forward JWT token
+                    jwt_token = extract_jwt_token_from_request(request)
+                    if jwt_token:
+                        auth_token = jwt_token
+                        log.debug(f"Forwarding JWT token for connection verification: {url}")
+                    else:
+                        log.warning(f"JWT forwarding enabled but no valid JWT token found for verification request to {url}")
+
+                if auth_token:  # Only set Authorization header if we have a token
+                    headers["Authorization"] = f"Bearer {auth_token}"
 
                 async with session.get(
                     f"{url}/models",
@@ -787,6 +836,17 @@ async def generate_chat_completion(
     url = request.app.state.config.OPENAI_API_BASE_URLS[idx]
     key = request.app.state.config.OPENAI_API_KEYS[idx]
 
+    # Check if we should forward JWT token instead of using API key
+    auth_token = key  # Default to API key
+    if ENABLE_FORWARD_JWT_TOKEN and (not key or key.strip() == ""):
+        # No API key configured, try to extract and forward JWT token
+        jwt_token = extract_jwt_token_from_request(request)
+        if jwt_token:
+            auth_token = jwt_token
+            log.debug(f"Forwarding JWT token to pipeline: {url}")
+        else:
+            log.warning(f"JWT forwarding enabled but no valid JWT token found for request to {url}")
+
     # Check if model is from "o" series
     is_o_series = payload["model"].lower().startswith(("o1", "o3", "o4"))
     if is_o_series:
@@ -831,12 +891,13 @@ async def generate_chat_completion(
     if api_config.get("azure", False):
         api_version = api_config.get("api_version", "2023-03-15-preview")
         request_url, payload = convert_to_azure_payload(url, payload, api_version)
-        headers["api-key"] = key
+        headers["api-key"] = auth_token
         headers["api-version"] = api_version
         request_url = f"{request_url}/chat/completions?api-version={api_version}"
     else:
         request_url = f"{url}/chat/completions"
-        headers["Authorization"] = f"Bearer {key}"
+        if auth_token:  # Only set Authorization header if we have a token
+            headers["Authorization"] = f"Bearer {auth_token}"
 
     payload = json.dumps(payload)
 

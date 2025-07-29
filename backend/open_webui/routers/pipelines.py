@@ -18,7 +18,7 @@ from pydantic import BaseModel
 from starlette.responses import FileResponse
 from typing import Optional
 
-from open_webui.env import SRC_LOG_LEVELS, AIOHTTP_CLIENT_SESSION_SSL
+from open_webui.env import SRC_LOG_LEVELS, AIOHTTP_CLIENT_SESSION_SSL, ENABLE_FORWARD_JWT_TOKEN
 from open_webui.config import CACHE_DIR
 from open_webui.constants import ERROR_MESSAGES
 
@@ -36,6 +36,28 @@ log.setLevel(SRC_LOG_LEVELS["MAIN"])
 # Pipeline Middleware
 #
 ##################################
+
+
+def extract_jwt_token_from_request(request: Request) -> Optional[str]:
+    """
+    Extract JWT token from request headers or cookies
+    """
+    # First try to get from Authorization header
+    auth_header = request.headers.get("Authorization")
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header[7:]  # Remove "Bearer " prefix
+        # Skip if it's an API key (starts with 'sk-')
+        if not token.startswith("sk-"):
+            return token
+    
+    # If not in header, try to get from cookies
+    if "token" in request.cookies:
+        token = request.cookies.get("token")
+        # Skip if it's an API key (starts with 'sk-')
+        if token and not token.startswith("sk-"):
+            return token
+    
+    return None
 
 
 def get_sorted_filters(model_id, models):
@@ -78,10 +100,21 @@ async def process_pipeline_inlet_filter(request, payload, user, models):
             url = request.app.state.config.OPENAI_API_BASE_URLS[urlIdx]
             key = request.app.state.config.OPENAI_API_KEYS[urlIdx]
 
-            if not key:
+            # Check if we should forward JWT token instead of using API key
+            auth_token = key  # Default to API key
+            if ENABLE_FORWARD_JWT_TOKEN and (not key or key.strip() == ""):
+                # No API key configured, try to extract and forward JWT token
+                jwt_token = extract_jwt_token_from_request(request)
+                if jwt_token:
+                    auth_token = jwt_token
+                    log.debug(f"Forwarding JWT token to pipeline inlet filter: {url}")
+                else:
+                    log.warning(f"JWT forwarding enabled but no valid JWT token found for inlet filter request to {url}")
+
+            if not auth_token:
                 continue
 
-            headers = {"Authorization": f"Bearer {key}"}
+            headers = {"Authorization": f"Bearer {auth_token}"}
             request_data = {
                 "user": user,
                 "body": payload,
@@ -131,10 +164,21 @@ async def process_pipeline_outlet_filter(request, payload, user, models):
             url = request.app.state.config.OPENAI_API_BASE_URLS[urlIdx]
             key = request.app.state.config.OPENAI_API_KEYS[urlIdx]
 
-            if not key:
+            # Check if we should forward JWT token instead of using API key
+            auth_token = key  # Default to API key
+            if ENABLE_FORWARD_JWT_TOKEN and (not key or key.strip() == ""):
+                # No API key configured, try to extract and forward JWT token
+                jwt_token = extract_jwt_token_from_request(request)
+                if jwt_token:
+                    auth_token = jwt_token
+                    log.debug(f"Forwarding JWT token to pipeline outlet filter: {url}")
+                else:
+                    log.warning(f"JWT forwarding enabled but no valid JWT token found for outlet filter request to {url}")
+
+            if not auth_token:
                 continue
 
-            headers = {"Authorization": f"Bearer {key}"}
+            headers = {"Authorization": f"Bearer {auth_token}"}
             request_data = {
                 "user": user,
                 "body": payload,
