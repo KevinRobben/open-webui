@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "تعديل هذه الإعدادات سيطبق التغييرات على جميع المستخدمين بشكل عام.",
 	"admin": "المسؤول",
 	"Admin": "المسؤول",
+	"owner": "مالك",
+	"Owner": "مالك",
 	"Admin Panel": "لوحة المسؤول",
 	"Admin Settings": "إعدادات المسؤول",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "للمسؤولين الوصول إلى جميع الأدوات في جميع الأوقات؛ بينما يحتاج المستخدمون إلى تعيين أدوات لكل نموذج في مساحة العمل.",

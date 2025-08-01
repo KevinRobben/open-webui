@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "এই সেটিংগুলো পরিবর্তন করলে তা সব ইউজারের উপরেই প্রয়োগ করা হবে",
 	"admin": "এডমিন",
 	"Admin": "",
+	"owner": "মালিক",
+	"Owner": "মালিক",
 	"Admin Panel": "এডমিন প্যানেল",
 	"Admin Settings": "এডমিন সেটিংস",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "",

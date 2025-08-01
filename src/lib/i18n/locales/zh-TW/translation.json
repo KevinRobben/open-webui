@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "調整這些設定將會影響所有使用者。",
 	"admin": "管理員",
 	"Admin": "管理員",
+	"owner": "擁有者",
+	"Owner": "擁有者",
 	"Admin Panel": "管理員控制台",
 	"Admin Settings": "管理員設定",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "管理員可以隨時使用所有工具；使用者則需在工作區中為每個模型分配工具。",

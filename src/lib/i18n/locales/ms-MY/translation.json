@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Melaraskan tetapan ini akan menggunakan perubahan secara universal kepada semua pengguna.",
 	"admin": "pentadbir",
 	"Admin": "Pentadbir",
+	"owner": "pemilik",
+	"Owner": "Pemilik",
 	"Admin Panel": "Panel Pentadbir",
 	"Admin Settings": "Tetapan Pentadbir",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Pentadbir mempunyai akses kepada semua alat pada setiap masa; pengguna memerlukan alat yang ditetapkan mengikut model dalam ruang kerja.",

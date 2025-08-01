@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Nende seadete kohandamine rakendab muudatused universaalselt kõigile kasutajatele.",
 	"admin": "admin",
 	"Admin": "Administraator",
+	"owner": "omanik",
+	"Owner": "Omanik",
 	"Admin Panel": "Administraatori paneel",
 	"Admin Settings": "Administraatori seaded",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administraatoritel on alati juurdepääs kõigile tööriistadele; kasutajatele tuleb tööriistad määrata mudeli põhiselt tööruumis.",

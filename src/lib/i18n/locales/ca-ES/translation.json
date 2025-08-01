@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Si ajustes aquesta preferència, els canvis s'aplicaran de manera universal a tots els usuaris.",
 	"admin": "administrador",
 	"Admin": "Administrador",
+	"owner": "propietari",
+	"Owner": "Propietari",
 	"Admin Panel": "Panell d'administració",
 	"Admin Settings": "Preferències d'administració",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Els administradors tenen accés a totes les eines en tot moment; els usuaris necessiten eines assignades per model a l'espai de treball.",

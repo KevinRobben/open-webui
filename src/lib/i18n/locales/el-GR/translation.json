@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Η ρύθμιση αυτών των παραμέτρων θα εφαρμόσει τις αλλαγές καθολικά σε όλους τους χρήστες.",
 	"admin": "διαχειριστής",
 	"Admin": "Διαχειριστής",
+	"owner": "ιδιοκτήτης",
+	"Owner": "Ιδιοκτήτης",
 	"Admin Panel": "Πίνακας Διαχειριστή",
 	"Admin Settings": "Ρυθμίσεις Διαχειριστή",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Οι διαχειριστές έχουν πρόσβαση σε όλα τα εργαλεία ανά πάσα στιγμή· οι χρήστες χρειάζονται εργαλεία ανά μοντέλο στον χώρο εργασίας.",

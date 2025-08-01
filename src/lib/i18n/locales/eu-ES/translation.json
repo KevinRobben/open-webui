@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Ezarpen hauek aldatzeak aldaketak erabiltzaile guztiei aplikatuko dizkie.",
 	"admin": "administratzailea",
 	"Admin": "Administratzailea",
+	"owner": "jabe",
+	"Owner": "Jabe",
 	"Admin Panel": "Administrazio Panela",
 	"Admin Settings": "Administrazio Ezarpenak",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administratzaileek tresna guztietarako sarbidea dute beti; erabiltzaileek lan-eremuan eredu bakoitzeko esleituak behar dituzte tresnak.",

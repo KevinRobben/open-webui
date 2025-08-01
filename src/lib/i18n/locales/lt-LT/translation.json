@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Šių nustatymų pakeitimas bus pritakytas visiems naudotojams.",
 	"admin": "Administratorius",
 	"Admin": "Administratorius",
+	"owner": "savininkas",
+	"Owner": "Savininkas",
 	"Admin Panel": "Administratorių panelė",
 	"Admin Settings": "Administratorių nustatymai",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administratoriai visada turi visus įrankius. Naudotojai turi tuėti prieigą prie dokumentų per modelių nuostatas",

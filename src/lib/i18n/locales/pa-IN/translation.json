@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "ਇਹ ਸੈਟਿੰਗਾਂ ਨੂੰ ਠੀਕ ਕਰਨ ਨਾਲ ਸਾਰੇ ਉਪਭੋਗਤਾਵਾਂ ਲਈ ਬਦਲਾਅ ਲਾਗੂ ਹੋਣਗੇ।",
 	"admin": "ਪ੍ਰਬੰਧਕ",
 	"Admin": "",
+	"owner": "ਮਾਲਕ",
+	"Owner": "ਮਾਲਕ",
 	"Admin Panel": "ਪ੍ਰਬੰਧਕ ਪੈਨਲ",
 	"Admin Settings": "ਪ੍ਰਬੰਧਕ ਸੈਟਿੰਗਾਂ",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "",

@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Ushbu sozlamalarni o'zgartirish barcha foydalanuvchilarga universal tarzda qo'llaniladi.",
 	"admin": "admin",
 	"Admin": "Admin",
+	"owner": "egasi",
+	"Owner": "Egasi",
 	"Admin Panel": "Administrator paneli",
 	"Admin Settings": "Administrator sozlamalari",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administratorlar har doim barcha vositalardan foydalanishlari mumkin; foydalanuvchilarga ish joyida har bir model uchun tayinlangan vositalar kerak bo'ladi.",

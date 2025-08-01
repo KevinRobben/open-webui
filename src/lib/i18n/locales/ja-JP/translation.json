@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "これらの設定を調整すると、すべてのユーザーに変更が適用されます。",
 	"admin": "管理者",
 	"Admin": "管理者",
+	"owner": "所有者",
+	"Owner": "所有者",
 	"Admin Panel": "管理者パネル",
 	"Admin Settings": "管理者設定",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "管理者は全てのツールにアクセス出来ます。ユーザーはワークスペースのモデル毎に割り当てて下さい。",

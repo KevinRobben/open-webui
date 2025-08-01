@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "སྒྲིག་འགོད་འདི་དག་ལེགས་སྒྲིག་བྱས་ན་བེད་སྤྱོད་མཁན་ཡོངས་ལ་འགྱུར་བ་དེ་བཀོལ་སྤྱོད་བྱེད་ངེས།",
 	"admin": "དོ་དམ་པ།",
 	"Admin": "དོ་དམ་པ།",
+	"owner": "བདག་པོ",
+	"Owner": "བདག་པོ",
 	"Admin Panel": "དོ་དམ་པའི་ལྟ་སྟེགས།",
 	"Admin Settings": "དོ་དམ་པའི་སྒྲིག་འགོད།",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "དོ་དམ་པས་དུས་རྟག་ཏུ་ལག་ཆ་ཡོངས་ལ་འཛུལ་སྤྱོད་བྱེད་ཆོག བེད་སྤྱོད་མཁན་གྱིས་ལས་ཡུལ་ནང་དཔེ་དབྱིབས་རེ་རེར་བཀོད་པའི་ལག་ཆ་དགོས་མཁོ་ཡོད།",

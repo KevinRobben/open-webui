@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Các thay đổi cài đặt này sẽ áp dụng cho tất cả người sử dụng.",
 	"admin": "quản trị viên",
 	"Admin": "Quản trị",
+	"owner": "chủ sở hữu",
+	"Owner": "Chủ sở hữu",
 	"Admin Panel": "Trang Quản trị",
 	"Admin Settings": "Cài đặt hệ thống",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Quản trị viên luôn có quyền truy cập vào tất cả các tool; người dùng cần các tools được chỉ định cho mỗi mô hình trong workspace.",

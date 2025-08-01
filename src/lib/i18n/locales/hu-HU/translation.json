@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Ezen beállítások módosítása minden felhasználóra érvényes lesz.",
 	"admin": "admin",
 	"Admin": "Admin",
+	"owner": "tulajdonos",
+	"Owner": "Tulajdonos",
 	"Admin Panel": "Admin Panel",
 	"Admin Settings": "Admin beállítások",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Az adminok mindig hozzáférnek minden eszközhöz; a felhasználóknak modellenként kell eszközöket hozzárendelni a munkaterületen.",

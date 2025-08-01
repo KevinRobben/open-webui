@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Úprava týchto nastavení sa prejaví univerzálne u všetkých užívateľov.",
 	"admin": "admin",
 	"Admin": "Admin",
+	"owner": "vlastník",
+	"Owner": "Vlastník",
 	"Admin Panel": "Admin panel",
 	"Admin Settings": "Nastavenia admina",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administrátori majú prístup ku všetkým nástrojom kedykoľvek; užívatelia potrebujú mať nástroje priradené podľa modelu v workspace.",

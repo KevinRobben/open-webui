@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Justering av dessa inställningar kommer att tillämpa ändringar universellt för alla användare.",
 	"admin": "administratör",
 	"Admin": "Admin",
+	"owner": "ägare",
+	"Owner": "Ägare",
 	"Admin Panel": "Administrationspanel",
 	"Admin Settings": "Administratörsinställningar",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Administratörer har tillgång till alla verktyg hela tiden, medan användare behöver verktyg som tilldelas per modell i arbetsytan.",

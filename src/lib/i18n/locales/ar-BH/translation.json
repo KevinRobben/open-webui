@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "سيؤدي ضبط هذه الإعدادات إلى تطبيق التغييرات بشكل عام على كافة المستخدمين",
 	"admin": "المشرف",
 	"Admin": "",
+	"owner": "مالك",
+	"Owner": "مالك",
 	"Admin Panel": "لوحة التحكم",
 	"Admin Settings": "اعدادات المشرف",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "",

@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "การปรับการตั้งค่าเหล่านี้จะนำไปใช้กับผู้ใช้ทั้งหมด",
 	"admin": "ผู้ดูแลระบบ",
 	"Admin": "ผู้ดูแลระบบ",
+	"owner": "เจ้าของ",
+	"Owner": "เจ้าของ",
 	"Admin Panel": "แผงผู้ดูแลระบบ",
 	"Admin Settings": "การตั้งค่าผู้ดูแลระบบ",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "ผู้ดูแลระบบสามารถเข้าถึงเครื่องมือทั้งหมดได้ตลอดเวลา; ผู้ใช้ต้องการเครื่องมือที่กำหนดต่อโมเดลในพื้นที่ทำงาน",

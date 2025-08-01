@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "התאמת הגדרות אלו תחול על כל המשתמשים.",
 	"admin": "מנהל",
 	"Admin": "מנהל",
+	"owner": "בעלים",
+	"Owner": "בעלים",
 	"Admin Panel": "לוח בקרה למנהל",
 	"Admin Settings": "הגדרות מנהל",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "",

@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Bu ayarların yapılması, değişiklikleri tüm kullanıcılara evrensel olarak uygulayacaktır.",
 	"admin": "yönetici",
 	"Admin": "Yönetici",
+	"owner": "sahip",
+	"Owner": "Sahip",
 	"Admin Panel": "Yönetici Paneli",
 	"Admin Settings": "Yönetici Ayarları",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Yöneticiler her zaman tüm araçlara erişebilir; kullanıcıların çalışma alanındaki model başına atanmış araçlara ihtiyacı vardır.",

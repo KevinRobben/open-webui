@@ -56,6 +56,8 @@
 	"Adjusting these settings will apply changes universally to all users.": "Cuirfear na socruithe seo ag coigeartú athruithe go huilíoch ar gach úsáideoir.",
 	"admin": "riarachán",
 	"Admin": "Riarachán",
+	"owner": "úinéir",
+	"Owner": "Úinéir",
 	"Admin Panel": "Painéal Riaracháin",
 	"Admin Settings": "Socruithe Riaracháin",
 	"Admins have access to all tools at all times; users need tools assigned per model in the workspace.": "Tá rochtain ag riarthóirí ar gach uirlis i gcónaí; teastaíonn ó úsáideoirí uirlisí a shanntar in aghaidh an mhúnla sa spás oibre.",
