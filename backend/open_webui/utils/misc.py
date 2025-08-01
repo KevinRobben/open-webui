@@ -68,7 +68,7 @@ def get_messages_content(messages: list[dict]) -> str:
 
 def get_last_user_message_item(messages: list[dict]) -> Optional[dict]:
     for message in reversed(messages):
-        if message["role"] == "user":
+        if message["role"] in ["user", "owner"]:
             return message
     return None
 
@@ -123,7 +123,7 @@ def prepend_to_first_user_message_content(
     content: str, messages: list[dict]
 ) -> list[dict]:
     for message in messages:
-        if message["role"] == "user":
+        if message["role"] in ["user", "owner"]:
             if isinstance(message["content"], list):
                 for item in message["content"]:
                     if item["type"] == "text":
@@ -168,7 +168,7 @@ def add_or_update_user_message(content: str, messages: list[dict]):
     :return: The updated list of message dictionaries.
     """
 
-    if messages and messages[-1].get("role") == "user":
+    if messages and messages[-1].get("role") in ["user", "owner"]:
         messages[-1]["content"] = f"{messages[-1]['content']}\n{content}"
     else:
         # Insert at the end
