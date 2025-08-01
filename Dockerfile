@@ -29,13 +29,23 @@ WORKDIR /app
 # to store git revision in build
 RUN apk add --no-cache git
 
+# Copy package files first for better caching
 COPY package.json package-lock.json ./
-RUN npm ci
 
+# Install dependencies with cache mount for faster rebuilds
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci
+
+# Copy source code
 COPY . .
+
+# Set environment variables for build
 ENV APP_BUILD_HASH=${BUILD_HASH}
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN npm run build
+
+# Run build with cache mount for Pyodide downloads
+RUN --mount=type=cache,target=/app/static/pyodide \
+    npm run build
 
 ######## WebUI backend ########
 FROM python:3.11-slim-bookworm AS base
@@ -136,7 +146,9 @@ RUN if [ "$USE_OLLAMA" = "true" ]; then \
 # install python dependencies
 COPY --chown=$UID:$GID ./backend/requirements.txt ./requirements.txt
 
-RUN pip3 install --no-cache-dir uv && \
+# Use cache mount for pip cache to speed up rebuilds
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip3 install --no-cache-dir uv && \
     if [ "$USE_CUDA" = "true" ]; then \
     # If you use CUDA the whisper and embedding model will be downloaded on first use
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/$USE_CUDA_DOCKER_VER --no-cache-dir && \
